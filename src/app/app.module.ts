@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 
+import { NgFor } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +14,8 @@ import { ProductsComponent } from './products/products.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    NgFor
   ],
   providers: [],
   bootstrap: [AppComponent]

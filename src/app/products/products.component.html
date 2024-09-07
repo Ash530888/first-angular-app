@@ -1,10 +1,9 @@
-<h2>{{product.name | uppercase}}</h2>
-<div><span>id: </span>{{product.id}}</div>
-<div>
-    <label for="name">Name: </label>
-    <input id="name" [(ngModel)]="product.name" placeholder="name" >
-</div>
-<div><span>Price: </span>£{{product.price}}</div>
-<div><span>Quantity: </span>{{product.quantity}} available</div>
-    
+<ul class="products">
+    <li *ngFor="let product of products">
+        <button type="button">
+            <span class="badge">{{product.id}}</span>
+            <span class="name">{{product.name}}</span>
+        </button>
+    </li>
+</ul>
 
