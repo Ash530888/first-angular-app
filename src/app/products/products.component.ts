@@ -9,4 +9,8 @@ import { Product } from './product';
 })
 export class ProductsComponent {
   products = PRODUCTS;
+  selectedProduct? : Product;
+  onSelect(product : Product){
+    this.selectedProduct = product;
+  }
 }
