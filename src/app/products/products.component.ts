@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
 import { ProductService } from '../product.service';
 import { MessageService } from '../message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -9,10 +10,9 @@ import { MessageService } from '../message.service';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit {
-  selectedProduct?: Product;
   products: Product[] = [];
 
-  constructor(private productService: ProductService, public messageService: MessageService){}
+  constructor(private productService: ProductService, public messageService: MessageService, private router:Router){}
 
   ngOnInit() : void{
     this.getProducts();
@@ -21,10 +21,5 @@ export class ProductsComponent implements OnInit {
   getProducts() : void{
     this.productService.getProducts()
     .subscribe(products => this.products = products);
-  }
-
-  onSelect(product: Product): void{
-    this.selectedProduct = product;
-    this.messageService.add(`ProductsComponent: Selected product id=${product.id}`);
   }
 }

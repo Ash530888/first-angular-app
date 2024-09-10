@@ -13,8 +13,14 @@ export class ProductService {
 
   getProducts(): Observable<Product[]>{
     const products = of(PRODUCTS);
-    this.addMessage("HeroService: fetched heroes");
+    this.addMessage("HeroService: fetched products");
     return products;
+  }
+
+  getProduct(id: number): Observable<Product>{
+    const product = PRODUCTS.find(product => product.id === id)!;
+    this.messageService.add(`HeroService: fetched product id=${id}`);
+    return of(product);
   }
 
   addMessage(message: String): void{
