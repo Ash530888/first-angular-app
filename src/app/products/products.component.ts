@@ -22,4 +22,21 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts()
     .subscribe(products => this.products = products);
   }
+
+  addNewProduct(productName: string, productPrice: string, productQuantity: string): void{
+    productName=productName.trim();
+    if(!productName) {return;}
+
+    const price = parseFloat(productPrice);
+    const quantity = parseInt(productQuantity);
+    this.productService.addNewProduct({name: productName, price:isNaN(price)? 0 : price, quantity:isNaN(quantity)? 0 : quantity} as Product)
+    .subscribe(product => {
+      this.products.push(product)
+    });
+  }
+
+  delete(product: Product): void{
+    this.products = this.products.filter(p => p !== product) // filter out the current product
+    this.productService.deleteProduct(product.id).subscribe();
+  }
 }

@@ -28,4 +28,11 @@ export class ProductDetailComponent {
   goBack(): void{
     this.location.back();
   }
+
+  save(): void{
+    if(this.product){
+      this.productService.updateProduct(this.product)
+      .subscribe(() => this.goBack());
+    }
+  }
 }

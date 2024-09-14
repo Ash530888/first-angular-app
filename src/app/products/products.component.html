@@ -3,6 +3,16 @@
             <a routerLink="/detail/{{product.id}}">
                 <span class="badge">{{product.id}}</span>{{product.name}}
             </a>
+            <button type="button" class="delete" title="delete product" (click)="delete(product)">x</button>
     </li>
 </ul>
 
+<div>
+    <label for="new_hero_name">New Product Name</label>
+    <input id="new_hero_name" #productName />
+    <label for="new_hero_price">Price</label>
+    <input id="new_hero_price" #productPrice />
+    <label for="new_hero_quantity">Quantity</label>
+    <input id="new_hero_quantity" #productQuantity />
+    <button type="button" (click)="addNewProduct(productName.value, productPrice.value, productQuantity.value); productPrice.value=''; productName.value=''; productQuantity.value=''; ">Add Product</button>
+</div>

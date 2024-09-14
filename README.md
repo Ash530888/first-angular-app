@@ -1,8 +1,9 @@
 # FirstAngularApp
 
-<<ADD DESCRIPTION>>
-
 Credit to this tutorial which served as a guide & provided CSS files: https://angular.io/tutorial/tour-of-heroes
+
+<<ADD DESCRIPTION>>
+- Simulated a data server which is accessed using HTTP
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
 
