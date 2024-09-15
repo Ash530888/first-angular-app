@@ -72,4 +72,16 @@ export class ProductService {
         catchError(this.handleError<Product>("deleteProduct"))
     );
   }
+
+  // get products whose name contains the string name
+  searchProducts(term: string): Observable<Product[]>{
+    if(term.trim()){
+      const url = `${this.productsURL}/?name=${term}`;
+      return this.http.get<Product[]>(url).pipe(
+        tap(x => x.length>0 ? this.log("Found some items matching search: "+term) : this.log("Didn't find any items matching search: "+term)),
+        catchError(this.handleError<Product[]>("searchProducts", []))
+      );
+    }
+    return of([] as Product[]);
+  }
 }

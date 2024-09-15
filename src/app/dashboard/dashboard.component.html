@@ -1,4 +1,5 @@
 <h2>Top Products</h2>
+<app-product-search></app-product-search>
 <div class="products-menu" *ngFor="let product of products">
     <a routerLink="/detail/{{product.id}}">{{product.name}}</a>
 </div>

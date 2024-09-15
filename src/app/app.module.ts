@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductSearchComponent } from "./product-search/product-search.component";
 
 @NgModule({
   imports: [
@@ -23,16 +24,15 @@ import { HttpClientModule } from '@angular/common/http';
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-        InMemoryDataService, { dataEncapsulation: false }
-    )
-  ],
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
+],
   declarations: [
     AppComponent,
     DashboardComponent,
     ProductsComponent,
     ProductDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    ProductSearchComponent
   ],
   bootstrap: [ AppComponent ]
 })

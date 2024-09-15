@@ -19,4 +19,10 @@ export class DashboardComponent {
   ngOnInit(): void{
     this.getProducts();
   }
+
+  
+  search(name: string): void{
+    this.productService;
+  }
+  
 }
